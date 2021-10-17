@@ -1,0 +1,56 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: radarr
+  labels:
+    app: radarr
+    part-of: radarr
+  annotations:
+    keel.sh/policy: force
+    keel.sh/trigger: poll
+    keel.sh/pollSchedule: "@hourly"
+    keel.sh/match-tag: true
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: radarr
+      part-of: radarr
+  template:
+    metadata:
+      labels:
+        app: radarr
+        part-of: radarr
+    spec:
+      containers:
+      - name: radarr
+        image: ghcr.io/linuxserver/radarr:latest
+        ports:
+        - name: radarr
+          containerPort: 7878
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: TZ
+          value: "Europe/Paris"
+        - name: UMASK
+          value: "022"
+        volumeMounts:
+        - name: radarr
+          mountPath: /config
+        - name: movies
+          mountPath: /movies
+        - name: downloads
+          mountPath: /downloads/movies
+      volumes:
+      - name: radarr
+        persistentVolumeClaim:
+          claimName: radarr
+      - name: movies
+        persistentVolumeClaim:
+          claimName: movies
+      - name: downloads
+        persistentVolumeClaim:
+          claimName: downloads
