@@ -44,6 +44,11 @@ spec:
           mountPath: /movies
         - name: downloads
           mountPath: /downloads/movies
+        resources:
+          limits:
+            memory: 256Mi
+          requests:
+            memory: 128Mi
       volumes:
       - name: radarr
         persistentVolumeClaim:
