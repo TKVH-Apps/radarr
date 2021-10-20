@@ -49,6 +49,16 @@ spec:
             memory: 128Mi
           requests:
             memory: 64Mi
+        readinessProbe:
+          tcpSocket:
+            port: radarr
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: radarr
+          initialDelaySeconds: 15
+          periodSeconds: 20
       volumes:
       - name: radarr
         persistentVolumeClaim:
