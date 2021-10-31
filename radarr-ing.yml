@@ -17,9 +17,9 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: radarr
+            name: ak-outpost-proxy01
             port:
-              number: 7878
+              number: 9000
   tls:
   - hosts:
     - <path:apps-kv/data/radarr/config#HOST>
