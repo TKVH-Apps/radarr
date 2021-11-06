@@ -6,3 +6,4 @@ resources:
   - radarr-svc.yml
   - radarr-pvc.yml
   - radarr-ing.yml
+  - radarr-ns.yml
