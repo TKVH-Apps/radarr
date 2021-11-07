@@ -46,7 +46,7 @@ spec:
           mountPath: /downloads/movies
         resources:
           limits:
-            memory: 384Mi
+            memory: 512Mi
           requests:
             memory: 256Mi
         readinessProbe:
