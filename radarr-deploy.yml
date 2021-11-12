@@ -48,7 +48,7 @@ spec:
           limits:
             memory: 256Mi
           requests:
-            memory: 128Mi
+            memory: 200Mi
         readinessProbe:
           tcpSocket:
             port: radarr
