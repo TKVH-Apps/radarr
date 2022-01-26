@@ -5,11 +5,6 @@ metadata:
   labels:
     app: radarr
     part-of: radarr
-  annotations:
-    keel.sh/policy: force
-    keel.sh/trigger: poll
-    keel.sh/pollSchedule: "@hourly"
-    keel.sh/match-tag: true
 spec:
   replicas: 1
   selector:
@@ -24,7 +19,7 @@ spec:
     spec:
       containers:
       - name: radarr
-        image: ghcr.io/linuxserver/radarr:latest
+        image: ghcr.io/linuxserver/radarr:3.2.2
         ports:
         - name: radarr
           containerPort: 7878
