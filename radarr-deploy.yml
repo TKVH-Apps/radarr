@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: radarr
-        image: ghcr.io/linuxserver/radarr:3.2.2
+        image: ghcr.io/linuxserver/radarr:4.0.5-nightly-alpine
         ports:
         - name: radarr
           containerPort: 7878
