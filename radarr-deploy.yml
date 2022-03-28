@@ -41,9 +41,9 @@ spec:
           mountPath: /downloads/movies
         resources:
           limits:
-            memory: 300Mi
+            memory: 200Mi
           requests:
-            memory: 250Mi
+            memory: 150Mi
         readinessProbe:
           tcpSocket:
             port: radarr
